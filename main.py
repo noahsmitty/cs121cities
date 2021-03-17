@@ -1,7 +1,6 @@
 import os
 from app import app
 import urllib.request
-from fastai.vision.widgets import *
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
@@ -34,7 +33,7 @@ def upload_image():
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		#print('upload_image filename: ' + filename)
 		#flash('Image successfully uploaded and displayed below')
-		flash(display_text(filename))
+		#flash(display_text(filename))
 		return render_template('upload.html', filename=filename)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
