@@ -35,9 +35,9 @@ def upload_image():
 @app.route('/display/<filename>')
 def display_image(filename):
 	#print('display_image filename: ' + filename)
-    learn_inf = load_learner('export.pkl')
-    pred, ind, prob = learn_inf.predict("img")
-    print(pred)
+    #learn_inf = load_learner('export.pkl')
+    #pred, ind, prob = learn_inf.predict("img")
+    #print(pred)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ == "__main__":
