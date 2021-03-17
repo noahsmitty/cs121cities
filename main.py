@@ -8,7 +8,13 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-	
+
+def display_text(filename):
+	learn_inf = load_learner('export.pkl')
+	pred, ind, prob = learn_inf.predict('uploads/' + filename)
+	pred = str(pred)
+	return pred
+
 @app.route('/')
 def upload_form():
 	return render_template('upload.html')
@@ -26,19 +32,14 @@ def upload_image():
 		filename = secure_filename(file.filename)
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		#print('upload_image filename: ' + filename)
-		flash('Image successfully uploaded and displayed below')
+		#flash('Image successfully uploaded and displayed below')
+		flash(display_text(filename))
 		return render_template('upload.html', filename=filename)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
 		return redirect(request.url)
 
 @app.route('/display/<filename>')
-def display_text(filename):
-	learn_inf = load_learner('export.pkl')
-	pred, ind, prob = learn_inf.predict('uploads/' + filename)
-	pred = str(pred)
-	return pred 
-
 def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
