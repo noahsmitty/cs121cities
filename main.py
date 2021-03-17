@@ -31,8 +31,8 @@ def upload_image():
 		filename = secure_filename(file.filename)
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		#print('upload_image filename: ' + filename)
-		#flash('Image successfully uploaded and displayed below')
-		flash(display_text(filename))
+		flash('Image successfully uploaded and displayed below')
+		#flash(display_text(filename))
 		return render_template('upload.html', filename=filename)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
@@ -41,6 +41,7 @@ def upload_image():
 @app.route('/display/<filename>')
 def display_image(filename):
 	#print('display_image filename: ' + filename)
+	print('Hello world!', file=sys.stderr)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ == "__main__":
