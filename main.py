@@ -1,6 +1,7 @@
 import os
 from app import app
 import urllib.request
+import fastbook
 from fastbook import *
 from fastai.vision.widgets import *
 from flask import Flask, flash, request, redirect, url_for, render_template
