@@ -13,6 +13,7 @@
 	{% endwith %}
 </p>
 {% if filename %}
+	{{ url_for('display_text', filename=filename) }}
 	<div>
 		<img src="{{ url_for('display_image', filename=filename) }}">
 	</div>
