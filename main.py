@@ -33,8 +33,7 @@ def upload_image():
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		#print('upload_image filename: ' + filename)
 		flash('Image successfully uploaded and displayed below')
-		flash(display_text(file.filename))
-		return render_template('upload.html', filename=filename)
+		return render_template('upload.html', filename=filename, prediction = display_text(filename))
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
 		return redirect(request.url)
