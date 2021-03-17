@@ -11,8 +11,7 @@ def allowed_file(filename):
 
 def display_text(filename):
 	learn_inf = load_learner('export.pkl')
-	pred, ind, prob = learn_inf.predict('uploads/' + filename)
-	pred = str(pred)
+	pred = str(learn_inf.predict('uploads/' + filename))
 	return pred
 
 @app.route('/')
@@ -33,7 +32,7 @@ def upload_image():
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		#print('upload_image filename: ' + filename)
 		#flash('Image successfully uploaded and displayed below')
-		#flash(display_text(filename))
+		flash(display_text(filename))
 		return render_template('upload.html', filename=filename)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
