@@ -1,6 +1,9 @@
 import os
 from app import app
 import sys
+from fastai import *
+from fastai.vision import *
+import pickle
 import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -11,8 +14,8 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def display_text(filename):
-	learn_inf = load_learner('export.pkl')
-	pred = str(learn_inf.predict('uploads/' + filename))
+	learn_inf = load_learner('')
+	pred = learn_inf.predict('uploads/' + filename)[0]
 	return pred
 
 @app.route('/')
@@ -33,7 +36,8 @@ def upload_image():
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		#print('upload_image filename: ' + filename)
 		flash('Image successfully uploaded and displayed below')
-		return render_template('upload.html', filename=filename, prediction = display_text(filename))
+		predict = display_text(file.filename)
+		return render_template('upload.html', filename=filename, prediction = predict)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
 		return redirect(request.url)
@@ -41,7 +45,6 @@ def upload_image():
 @app.route('/display/<filename>')
 def display_image(filename):
 	#print('display_image filename: ' + filename)
-	print('Hello world!', file=sys.stderr)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ == "__main__":
