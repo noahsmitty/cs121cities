@@ -3,6 +3,8 @@ from app import app
 import sys
 from fastai import *
 from fastai.vision import *
+from fastai.basic_train import *
+from fastai.vision.widgets import *
 import pickle
 import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
