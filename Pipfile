@@ -7,7 +7,7 @@ name = "pypi"
 requests = "*"
 flask = "*"
 gunicorn = "*"
-fastai = "==1.0.61"
+fastai = "*"
 
 [dev-packages]
 
