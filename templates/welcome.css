@@ -1,0 +1,61 @@
+/* CSS styles */
+h1 {
+    font-family: Impact, sans-serif;
+    color: #6495ED;
+}
+  
+h2 {
+  font-family: Impact, sans-serif;
+  color: #00BFFF;
+}
+
+h3 {
+  font-family: Impact, sans-serif;
+}
+
+#container {
+  overflow: hidden;
+  width: 2000px;
+}
+
+#inner {
+  overflow: hidden;
+  width: 2000px;
+}
+
+.child {
+  float: left;
+  width: 130px;
+  height: 50px;
+}
+#NYC {
+  font-family: Impact, sans-serif;
+}
+#SF {
+  font-family: Impact, sans-serif;
+}
+#Lon {
+  font-family: Impact, sans-serif;
+}
+#Tokyo {
+  font-family: Impact, sans-serif;
+}
+#ND {
+  font-family: Impact, sans-serif;
+}
+
+
+.button {
+  background-color: #1c87c9;
+  border: black;
+  color: white;
+  padding: 20px 34px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: Impact, sans-serif;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+  
