@@ -1,12 +1,18 @@
 /* CSS styles */
+html{
+    border: solid;
+}
+
 h1 {
     font-family: Impact, sans-serif;
-    color: #6495ED;
+    color: Black;
+    border-bottom: 2px solid black;
 }
   
 h2 {
   font-family: Impact, sans-serif;
-  color: #00BFFF;
+  color: #000000;
+  border: 1px solid black;
 }
 
 h3 {
@@ -44,12 +50,21 @@ h3 {
   font-family: Impact, sans-serif;
 }
 
+#ST {
+  font-family: Impact, sans-serif;
+}
+
+#BG {
+  font-family: Impact, sans-serif;
+}
+
+
 
 .button {
-  background-color: #1c87c9;
+  background-color: #505050;
   border: black;
   color: white;
-  padding: 20px 34px;
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -57,5 +72,5 @@ h3 {
   font-family: Impact, sans-serif;
   margin: 4px 2px;
   cursor: pointer;
+  border-radius: 10px
 }
-  
