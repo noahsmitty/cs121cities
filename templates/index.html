@@ -1,0 +1,45 @@
+<!doctype html>
+<center>
+
+<title>Python Flask File Upload Example</title>
+<h1>Where Am I? </h1>
+<h2> Image Skyline and Landmark Identifier </h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+{% if filename %}
+	<div>
+		<img src="{{ url_for('display_image', filename=filename) }}" width="500" >
+		<p> {{ prediction }}</p>
+	</div>
+{% endif %}
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" required accept="image/png, image/jpg, image/jpeg">
+		</p>
+    </dl>
+
+	<p> 
+	<h5> Choose image type! </h5>  <br>
+		<input type="radio" id="skyline" name="imagetype" value="skyline">
+		<label for="skyline">Skyline</label><br>
+		<input type="radio" id="landmark" name="imagetype" value="landmark">
+		<label for="landmark">Landmark</label><br>
+	<p>
+		<input type="submit" value="Submit">
+	</p>
+
+</form>
+
+
+
+</center>
