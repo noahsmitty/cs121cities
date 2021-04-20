@@ -47,12 +47,10 @@ def upload_image():
         imagetype = request.form["imagetype"]
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        #print('upload_image filename: ' + filename)
-        # flash('Image successfully uploaded and displayed below')
         predict = display_text(file.filename, imagetype)
         return render_template('upload.html', filename=filename, prediction = predict)
         
-    flash('Allowed image types are -> png, jpg, jpeg, gif')
+    flash('Allowed image types are -> png, jpg, jpeg')
     return redirect(request.url)
 
 
