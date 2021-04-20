@@ -23,11 +23,15 @@ def display_text(filename, imagetype):
 	# pred = learn_inf.predict('uploads/' + filename)[0]
 	# return pred
 
-@app.route('/')
+@app.route('/predict')
 def upload_form():
 	return render_template('upload.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/')
+def welcome():
+	return render_template('welcome.html')
+
+@app.route('/predict', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
         flash('No file part')
