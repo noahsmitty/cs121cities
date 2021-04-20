@@ -33,6 +33,14 @@ def welcome():
 
 @app.route('/predict', methods=['POST'])
 def upload_image():
+	fileList = 'static/uploads'
+
+    for filePath in fileList:
+        try:
+            os.remove(filePath)
+        except:
+            print("Error while deleting file: ", filePath)
+	
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
