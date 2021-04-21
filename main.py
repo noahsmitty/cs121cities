@@ -14,8 +14,10 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def display_text(filename, imagetype):
+    learn_inf_categorize = load_learner("categorize.pkl")
+    category = learn_inf_categorize.predict('static/uploads/' + filename)[0]
 
-    if imagetype == "landmark":
+    if category == "landmarks":
         learn_inf = load_learner("landmarkModel.pkl")
         pred = learn_inf.predict('static/uploads/' + filename)[0]
         return "your city is: " + pred
