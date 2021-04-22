@@ -14,15 +14,15 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def display_text(filename, imagetype):
-    learn_inf_categorize = load_learner("categorize.pkl")
+    learn_inf_categorize = load_learner("categorize.pkl", map_location=torch.device("cpu"))
     category = learn_inf_categorize.predict('static/uploads/' + filename)[0]
 
     if category == "landmarks":
-        learn_inf = load_learner("landmarkModel.pkl")
+        learn_inf = load_learner("landmarkModel.pkl", map_location=torch.device("cpu"))
         pred = learn_inf.predict('static/uploads/' + filename)[0]
         return "your city is: " + pred
     else:
-        learn_inf = load_learner("skylineModel.pkl")
+        learn_inf = load_learner("skylineModel.pkl", map_location=torch.device("cpu"))
         pred = learn_inf.predict('static/uploads/' + filename)[0]
         return "your city is: " + pred
 
