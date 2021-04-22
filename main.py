@@ -28,10 +28,16 @@ def display_text(filename, imagetype):
 
 
 @app.route('/')
+def welcome():
+	return render_template('welcome.html')
+
+
+@app.route('/predict')
 def upload_form():
     return render_template('upload.html')
 
-@app.route('/', methods=['POST'])
+
+@app.route('/predict', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
         flash('No file part')
