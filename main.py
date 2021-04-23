@@ -51,7 +51,7 @@ def upload_form():
 
 
 @app.route('/predict', methods=['POST'])
-def upload_image():
+def upload_image(filename=None):
     path = "static/uploads/"
     fileList = os.listdir(path)
     
@@ -70,8 +70,9 @@ def upload_image():
         flash('No image selected for uploading')
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        if filename == None:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         predict = display_text(file.filename)
         return render_template('upload.html', filename=filename, prediction = predict)
         
@@ -81,7 +82,7 @@ def upload_image():
 
 @app.route('/display/<filename>')
 def display_image(filename):
-    return redirect(url_for('static', filename='uploads/' + filename), code=301)
+    return redirect(url_for('static', filename='/uploads/' + filename), code=301)
 
 if __name__ == "__main__":
     app.run(debug=True)
