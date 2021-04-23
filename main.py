@@ -38,7 +38,6 @@ def display_text(filename, imagetype):
 
     return f"Your city is: {pred}"
 
-
 @app.route('/', methods=['POST', 'GET'])
 def welcome():
 	if request.method == 'POST':
