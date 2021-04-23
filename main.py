@@ -20,11 +20,23 @@ def display_text(filename, imagetype):
     if category == "landmarks":
         learn_inf = load_learner("landmarkModel.pkl", map_location=torch.device("cpu"))
         pred = learn_inf.predict('static/uploads/' + filename)[0]
-        return "your city is: " + pred
     else:
         learn_inf = load_learner("skylineModel.pkl", map_location=torch.device("cpu"))
         pred = learn_inf.predict('static/uploads/' + filename)[0]
-        return "your city is: " + pred
+
+    # make city names look nicer
+    if pred == "san francisco":
+        pred = "San Francisco"
+    elif pred == "new york":
+        pred = "New York"
+    elif pred == "london":
+        pred = "London"
+    elif pred == "tokyo":
+        pred = "Tokyo"
+    else:
+        pred = "New Delhi"
+
+    return f"Your city is: {pred}"
 
 
 @app.route('/')
