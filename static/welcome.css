@@ -1,11 +1,16 @@
 /* CSS styles */
 
+body {
+  background-color: #00ABFF99;
+}
+
 h1 {
     font-family: Impact, sans-serif;
     color: 1565C0;
     border-bottom: 2px solid black;
 }
   
+
 h2 {
   font-family: Impact, sans-serif;
   color: #000000;

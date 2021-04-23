@@ -36,7 +36,7 @@ def display_text(filename):
     else:
         pred = "New Delhi"
 
-    return f"Your city is: {pred}"
+    return pred
 
 @app.route('/', methods=['POST', 'GET'])
 def welcome():

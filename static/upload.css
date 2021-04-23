@@ -1,4 +1,7 @@
 /* Add a black background color to the top navigation */
+body {
+  background-color: #00ABFF99;
+}
 
 h1 {
     font-family: Impact, sans-serif;
