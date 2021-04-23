@@ -1,7 +1,7 @@
 /* Add a black background color to the top navigation */
 
 body {
-  background-image: url("cityoutline.jpeg");
+  background-image: url("static/images/cityoutline.jpeg");
 }
 h1 {
     font-family: Impact, sans-serif;
