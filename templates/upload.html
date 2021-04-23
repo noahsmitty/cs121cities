@@ -21,7 +21,11 @@
     {% if filename %}
         <div>
             <img src="{{ url_for('display_image', filename=filename) }}" width="500" >
-            <p> {{ prediction }}</p>
+            <p>
+              <div class="prediction">
+                {{ prediction }}
+              </div>
+            </p>
         </div>
     {% endif %}
     <form method="post" action="/predict" enctype="multipart/form-data">
