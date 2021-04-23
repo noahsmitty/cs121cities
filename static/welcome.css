@@ -1,7 +1,4 @@
 /* CSS styles */
-html{
-    border: solid;
-}
 
 h1 {
     font-family: Impact, sans-serif;
@@ -12,7 +9,6 @@ h1 {
 h2 {
   font-family: Impact, sans-serif;
   color: #000000;
-  border: 1px solid black;
 }
 
 h3 {
@@ -21,7 +17,7 @@ h3 {
 
 #container {
   overflow: hidden;
-  width: 2000px;
+  width: 1000px;
   height: auto;
   display: flex;
   justify-content: center;
@@ -34,8 +30,8 @@ h3 {
 
 .child {
   float: left;
-  width: 130px;
-  height: 50px;
+  width: 200px;
+  height: 200px;
 }
 #NYC {
   font-family: Impact, sans-serif;
@@ -45,19 +41,12 @@ h3 {
 }
 #Lon {
   font-family: Impact, sans-serif;
+
 }
 #Tokyo {
   font-family: Impact, sans-serif;
 }
 #ND {
-  font-family: Impact, sans-serif;
-}
-
-#ST {
-  font-family: Impact, sans-serif;
-}
-
-#BG {
   font-family: Impact, sans-serif;
 }
 
