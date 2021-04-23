@@ -6,7 +6,6 @@
   <title>Python Flask File Upload Example</title>
   <h1>Where Am I? </h1>
   <h2> Image Skyline and Landmark Identifier </h2>
-  <body>
     <p>
       {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -20,11 +19,11 @@
     </p>
     {% if filename %}
         <div>
-            <img src="{{ url_for('display_image', filename=filename) }}" style="max-width:100%;height:auto;" >
+            <img src="{{ url_for('display_image', filename=filename) }}" width="500" >
             <p> {{ prediction }}</p>
         </div>
     {% endif %}
-    <form method="post" action="/" enctype="multipart/form-data">
+    <form method="post" action="/predict" enctype="multipart/form-data">
         <dl>
             <p>
               <input type="file" name="file" autocomplete="off" required accept="image/png, image/jpg, image/jpeg">
@@ -36,5 +35,4 @@
         </p>
 
     </form>
-  </body>
 </center>

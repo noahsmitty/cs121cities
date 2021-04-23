@@ -13,15 +13,15 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def display_text(filename, imagetype):
-    learn_inf_categorize = load_learner("categorize.pkl", map_location=torch.device("cpu"))
+def display_text(filename):
+    learn_inf_categorize = load_learner("categorize.pkl", cpu=True)
     category = learn_inf_categorize.predict('static/uploads/' + filename)[0]
 
     if category == "landmarks":
-        learn_inf = load_learner("landmarkModel.pkl", map_location=torch.device("cpu"))
+        learn_inf = load_learner("landmarkModel.pkl", cpu=True)
         pred = learn_inf.predict('static/uploads/' + filename)[0]
     else:
-        learn_inf = load_learner("skylineModel.pkl", map_location=torch.device("cpu"))
+        learn_inf = load_learner("skylineModel.pkl", cpu=True)
         pred = learn_inf.predict('static/uploads/' + filename)[0]
 
     # make city names look nicer
@@ -41,7 +41,7 @@ def display_text(filename, imagetype):
 @app.route('/', methods=['POST', 'GET'])
 def welcome():
 	if request.method == 'POST':
-		return redirect(url_for('upload_form'))
+		return redirect(url_for('upload_image'))
 	return render_template('welcome.html')
 
 
@@ -52,6 +52,15 @@ def upload_form():
 
 @app.route('/predict', methods=['POST'])
 def upload_image():
+    path = "static/uploads/"
+    fileList = os.listdir(path)
+    
+    for fn in fileList:
+        try:
+            os.remove(path+fn)
+        except:
+            print(f"Error while deleting file {path+fn}")
+
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
@@ -61,14 +70,9 @@ def upload_image():
         flash('No image selected for uploading')
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        if "imagetype" not in request.values:
-            flash("no image type selected")
-            return redirect(request.url)
-
-        imagetype = request.form["imagetype"]
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        predict = display_text(file.filename, imagetype)
+        predict = display_text(file.filename)
         return render_template('upload.html', filename=filename, prediction = predict)
         
     flash('Allowed image types are -> png, jpg, jpeg')
@@ -77,8 +81,7 @@ def upload_image():
 
 @app.route('/display/<filename>')
 def display_image(filename):
-    #print('display_image filename: ' + filename)
-    return redirect(url_for('static', filename='static/uploads/' + filename), code=301)
+    return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ == "__main__":
     app.run(debug=True)

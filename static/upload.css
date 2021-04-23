@@ -1,8 +1,5 @@
 /* Add a black background color to the top navigation */
 
-body {
-  background-image: url("static/images/cityoutline.jpeg");
-}
 h1 {
     font-family: Impact, sans-serif;
     color: 1565C0;
@@ -16,6 +13,7 @@ h1 {
   overflow: hidden;
   border: solid black
 }
+
 
 /* Style the links inside the navigation bar */
 .topnav a {
