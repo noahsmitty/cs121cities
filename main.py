@@ -42,7 +42,7 @@ def display_text(filename, imagetype):
 @app.route('/', methods=['POST', 'GET'])
 def welcome():
 	if request.method == 'POST':
-		return redirect(url_for('upload'))
+		return redirect(url_for('upload_form'))
 	return render_template('welcome.html')
 
 
