@@ -10,6 +10,10 @@ h1 {
     height: 40
 }
 
+.prediction {
+  font-family: Impact, sans-serif;
+}
+
 .topnav {
   position: static;
   background-color: white;
