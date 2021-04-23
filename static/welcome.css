@@ -22,6 +22,7 @@ h3 {
 #container {
   overflow: hidden;
   width: 2000px;
+  height: auto;
   display: flex;
   justify-content: center;
 }
