@@ -27,10 +27,10 @@ h3 {
   justify-content: center;
 }
 
-#inner {
+/*#inner {
   overflow: hidden;
   width: 2000px;
-}
+}*/
 
 .child {
   float: left;

@@ -12,6 +12,8 @@ h1 {
 
 .prediction {
   font-family: Impact, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .topnav {
