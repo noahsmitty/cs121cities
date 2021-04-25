@@ -1,6 +1,5 @@
 runtime: python37
 
-default_expiration: "1d"
 
 handlers:
   # This configures Google App Engine to serve the files in the app's static

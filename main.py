@@ -14,14 +14,14 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def display_text(filename):
-    learn_inf_categorize = load_learner("categorize.pkl", cpu=True)
+    learn_inf_categorize = load_learner("categorizeCPU.pkl", cpu=True)
     category = learn_inf_categorize.predict('static/uploads/' + filename)[0]
 
     if category == "landmarks":
-        learn_inf = load_learner("landmarkModel.pkl", cpu=True)
+        learn_inf = load_learner("landmarkModelCPU.pkl", cpu=True)
         pred = learn_inf.predict('static/uploads/' + filename)[0]
     else:
-        learn_inf = load_learner("skylineModel.pkl", cpu=True)
+        learn_inf = load_learner("skylineModelCPU.pkl", cpu=True)
         pred = learn_inf.predict('static/uploads/' + filename)[0]
 
     # make city names look nicer
