@@ -1,0 +1,66 @@
+/* Add a black background color to the top navigation */
+body {
+  background-color: #00ABFF99;
+}
+
+h1 {
+    font-family: Impact, sans-serif;
+    color: 1565C0;
+    border-bottom: 2px solid black;
+    height: 40
+}
+
+.prediction {
+  font-family: Impact, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.topnav {
+  position: static;
+  background-color: white;
+  overflow: hidden;
+  border: solid black
+}
+
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 0px;
+  color: black;
+  width: 50%;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+
+.button {
+  background-color: #505050;
+  border: black;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: Impact, sans-serif;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px
+}
+
+h5, input[type=radio]  {
+  border: solid black
+}      
+
