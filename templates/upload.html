@@ -1,0 +1,44 @@
+<!doctype html>
+<body>
+<center>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../static/upload.css" media="screen"/>
+  </head>
+  <title>Where Am I?</title>
+  <h1>Where Am I? </h1>
+  <h2> City Identifier </h2>
+    <p>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ image_fn }}" width="500" >
+            <p>
+              <div class="prediction">
+                {{ prediction }}
+              </div>
+            </p>
+        </div>
+    {% endif %}
+    <form method="post" action="/predict" enctype="multipart/form-data">
+        <dl>
+            <p>
+              <input type="file" name="file" autocomplete="off" required accept="image/png, image/jpg, image/jpeg">
+            </p>
+        </dl>
+       
+        <p>
+            <input class="button" type="submit" value="Submit">
+        </p>
+
+    </form>
+</center>
+</body>
