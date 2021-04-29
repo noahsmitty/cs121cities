@@ -43,16 +43,17 @@ def display_text(filename):
     :param filename is the filename of the input image.
     :return an fstring of the prediction, displayed using WTForms on our HTML page.
     """
+    model_dir = "models/"
     # run initial landmark vs skyline model
-    learn_inf_categorize = load_learner("categorizeCPU.pkl", cpu=True)
+    learn_inf_categorize = load_learner(model_dir+"categorizeCPU.pkl", cpu=True)
     category = learn_inf_categorize.predict(UPLOAD_FOLDER + filename)[0]
 
     # run our other two models depending on first model
     if category == "landmarks":
-        learn_inf = load_learner("landmarkModelCPU.pkl", cpu=True)
+        learn_inf = load_learner(model_dir+"landmarkModelCPU.pkl", cpu=True)
         pred = learn_inf.predict(UPLOAD_FOLDER + filename)[0]
     else:
-        learn_inf = load_learner("skylineModelCPU.pkl", cpu=True)
+        learn_inf = load_learner(model_dir+"skylineModelCPU.pkl", cpu=True)
         pred = learn_inf.predict(UPLOAD_FOLDER + filename)[0]
 
     # capitalize city names for display

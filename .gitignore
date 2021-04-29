@@ -3,6 +3,9 @@ download.jpeg
 image.jpeg
 image2.jpeg
 
+.git
+.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
