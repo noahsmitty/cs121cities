@@ -15,11 +15,7 @@ We want to thank Professor Elizabeth Sweedyk for the support she has provided us
 
 ## Contributors
 [Josh Cheung](https://github.com/jcheung-0)
-[Noah Smith]
-(https://github.com/noahsmitty)
-[Arun Ramakrishna]
-(https://github.com/arunramakrishna)
-[Giovanni Castro]
-(https://github.com/gcastro1)
-[Chuksi Emuwa]
-(https://github.com/Chuksi101)
+[Noah Smith](https://github.com/noahsmitty)
+[Arun Ramakrishna](https://github.com/arunramakrishna)
+[Giovanni Castro](https://github.com/gcastro1)
+[Chuksi Emuwa](https://github.com/Chuksi101)
