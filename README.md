@@ -10,7 +10,7 @@ Our project was created using three ResNet-34 CNN model thorugh fastai. The firs
 * The website generates an error after uploading around 5 images.
 * An unchecked error is generated when a non-image files that has a .jpg, .jpeg, or .png extention is uploaded.
 
-## Acknoledgements
+## Acknowledgements
 We want to thank Professor Elizabeth Sweedyk for the support she has provided us and Carson Herness, our grutor, for all the assistance with deploying our application.
 
 ## Contributors
