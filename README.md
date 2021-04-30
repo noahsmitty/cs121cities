@@ -14,8 +14,7 @@ Our project was created using three ResNet-34 CNN model thorugh fastai. The firs
 We want to thank Professor Elizabeth Sweedyk for the support she has provided us and Carson Herness, our grutor, for all the assistance with deploying our application.
 
 ## Contributors
-[Josh Cheung]
-(https://github.com/jcheung-0)
+[Josh Cheung](https://github.com/jcheung-0)
 [Noah Smith]
 (https://github.com/noahsmitty)
 [Arun Ramakrishna]
